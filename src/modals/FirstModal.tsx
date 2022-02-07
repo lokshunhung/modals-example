@@ -36,9 +36,11 @@ export const FirstModal = (props: Props) => {
 
 export const ManagedFirstModal = () => {
     const { isModalOpened, openModal, closeModal } = useModalManager();
+    const isOpen = isModalOpened("FirstModal");
+    if (!isOpen) return null;
     return (
         <FirstModal
-            isOpen={isModalOpened("FirstModal")}
+            isOpen={isOpen}
             onClose={() => closeModal("FirstModal")}
             onOpenSecondModal={() => openModal("SecondModal")}
         />
